@@ -2,15 +2,24 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 function Followers(props) {
-    // everything inside here is considered inside render
-    return (
+    // everything inside here is considered inside render 
+    console.log(props)
+   return(
+     <div>
+      {props.fData.map((follow) => {
+       return (
         <div>
-          <img src={props.fData.avatar_url} alt="profile" ></img>
-          <h2>Login: {props.fData.login}</h2>
-          <h3>URL: {props.fData.url}</h3> 
-          <h3>Followers: {props.fData.followers}</h3>    
-          <h3>Following: {props.fData.following}</h3>         
+          <img src={follow.avatar_url} alt="profile" ></img>
+          <h2>Login: {follow.login}</h2>
+          <h3>URL: {follow.url}</h3> 
+          <h3>Followers: {follow.followers}</h3>    
+          <h3>Following: {follow.following}</h3>         
         </div>
-        )};
+       )
+      })}
+    </div>      
+    )
+
+     };
 
 export default Followers;

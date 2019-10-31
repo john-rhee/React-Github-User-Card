@@ -3,33 +3,25 @@ import ReactDOM from 'react-dom';
 import axios from 'axios';
 import Followers from './Followers';
 
-const followers= [
-    'tetondan',
-    'dustinmyers',
-    'justsml',
-    'luishrd',
-    'bigknell'
-  ];
   
-
 class FList extends React.Component {
     state = {
     fData: [],
     };
 
     componentDidMount() {
-    let i = 0;
-    followers.forEach((p, i) => {
+    
       axios
-        .get(`https://api.github.com/users/${followers[i]}`)
+        .get(`https://api.github.com/users/tetondan/followers`)
         .then(response => {
           this.setState({
           fData: response.data
     });
-        i++;
+        //  console.log(this.state.fData)
+
     });
-        })
-        
+  
+     
     };
   
   render() {  
